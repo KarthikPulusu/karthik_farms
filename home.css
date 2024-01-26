@@ -1,0 +1,136 @@
+*{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding: 0;
+    margin: 0;
+}
+/*NAVIGATION BAR*/
+.flex-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
+}
+.right{
+    text-align: right;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: larger;
+    
+    
+}
+.left{
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    margin-left:0.5rem;
+    color: whitesmoke;
+    font-style: initial;
+    font-size: larger;
+    font-size: 30px;
+}
+/*.right{ 
+    text-align: right;
+    display: flex;
+    flex-direction: row;
+    margin-right:0.5rem;
+}*/
+#top-nav-bar{
+    background-color: rgb(24, 17, 17);
+    color: white;
+    position: fixed;
+    height: 10vh;
+    width: 100vw;
+    z-index: 5;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+span{
+    color: chartreuse;
+}
+nav,ul,li{
+    display: inline-block;
+    padding: 10px 20px;
+}
+.nav,ul,li,a{
+    color: aliceblue;
+    text-decoration: none;
+}
+.nav,ul,li,a:hover{
+    color: yellow;
+    transition: o.2s;
+}
+/**HOME**/
+#home{
+    color:black;
+    padding-top: 5rem;
+    justify-content: justify;
+    background-image: linear-gradient(rgb(191, 191, 247),rgb(188, 233, 175));
+}
+.invite{
+    text-align: center;
+    padding-bottom: 1rem;
+    font-style: inherit;
+}
+.slide{
+    display: flex;
+    flex-direction: column;
+    width: 75vw;
+    height: 450px;
+    border: 3px solid black;
+   margin: auto;
+   background-image:url(images/a1.jpg);
+   background-size: 100% 100%; animation: slider 25s infinite linear;
+   margin-bottom: 30px;
+}
+@keyframes slider{
+    0%{  background-image: url(images/a1.jpg);}
+    20%{  background-image: url(images/a2.jpg);}
+    40%{  background-image: url(images/a3.jpg);}
+    60%{  background-image: url(images/a4.jpg);}
+    80%{  background-image: url(images/a5.jpg);}
+}
+/*.slide img{
+    height: 515px;
+    width: 79vw;
+}*/
+/*PRODUCTS*/
+.container{
+    margin: 10px;
+    justify-content: space-between;
+    width: auto;
+    display: flex;
+    flex: wrap;
+    
+}
+.about_item img{
+    height: 30vh;
+    width: 15vw;
+}
+.box{
+    margin: 10px 0px 10px 0px;
+    border: 2px solid rgb(183, 46, 154);
+    padding: 10px;
+    border-radius: 10px;
+    height: 60vh;
+    width: 28vw;
+}
+.about_item{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.about_item button{
+    justify-self: center;
+    background-color: rgb(17, 245, 78);
+    padding: 10px 20px;
+    border-radius: 15px;
+    font-size: larger;
+}
+.description{
+    padding: 30px;
+    font-size: 20px;
+}

@@ -1,0 +1,38 @@
+.address{
+    display: flex;
+    flex-direction: row;
+}
+.addbox{
+    border: 2px solid white;
+    text-align: center;
+    padding: 20px;
+    margin: 40px 0px 40px 90px;
+    background-color: rgb(165, 248, 220);
+}
+iframe{
+    margin: 10px 30px 10px 200px;
+}
+.social_media{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: black;
+    font-size: larger;
+    margin-bottom: 30px;
+
+}
+#con a{
+    color: black;
+    font-size: 30px;
+    border: 2px solid rgb(153, 46, 235);
+    margin: 0px 500px 10px 500px;
+    background-image: linear-gradient(rgb(221, 221, 221),rgb(94, 204, 209))
+}
+.social_media a:hover{
+    color: black;
+    transition: 0.2s;
+}
+#body{
+    background-image: linear-gradient(rgb(219, 181, 115),pink)
+    
+}

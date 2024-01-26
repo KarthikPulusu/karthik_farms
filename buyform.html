@@ -1,0 +1,95 @@
+<head>
+    <style>
+        .box{
+            border: 2px solid black;
+            text-align: left;
+            margin: 0px 0px 0px 30px;
+            padding: 20px;
+            height: 350px;
+            width: 500px;
+            background-color: rgb(150, 201, 243);
+
+        }
+        .buttons{
+            display: flex;
+            flex: 1;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        .kit{
+            display: flex;
+            flex: 1;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        .section{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        /*.img{
+            height: 10vh;
+            width: 150vw
+        }*/
+    </style>
+</head>
+<body>
+    <h1 style="color: darkred; text-align: left; margin-top: 40px; margin-left: 30px;">Place the order here.!</h1>
+<div class="section"> 
+    <div class="box">
+        <form>
+            <label for="name">Name&nbsp&nbsp&nbsp;</label>
+            <input type="text" required><br><br>
+            <label for="number">Number</label>
+            <input type="number" required><br></br>
+            <label for="address">Address</label>
+            <input type="text" required><br><br>
+            <label for="pincode">Pincode</label>
+            <input type="number" required><br></br>
+            <label for="gender">Gender:</label><br>
+            <label for="male">Male</label>
+            <input type="radio" name="gender" id="male">
+            <label for="female">Female</label>
+            <input type="radio" name="gender" id="female">
+            <label for="Others">Others</label>
+            <input type="radio" name="gender" id="others"><br><br>
+            <div class="kit">
+                <label for="item">Item</label>
+                    <select name="item">
+                        <option value="" disabled selected required>select</option>
+                        <option value ="buffalo milk">Buffalo milk</option>
+                        <option value ="cow milk">Cow milk</option>
+                        <option value ="badam milk">Badam milk</option>
+                        <option value ="cheese">Cheese</option>
+                        <option value ="butter">Butter</option>
+                        <option value ="ghee">Ghee</option>
+                    </select>
+                <label for="quantity">Quantity</label>
+                    <select name="quantity">
+                        <option value="" disabled selected>select</option>
+                        <option value ="1 Litre">1 Litre</option>
+                        <option value ="5 litre">5 litre</option>
+                        <option value ="10 litre">10 Litre</option>
+                        <option value ="1 Kg">1 Kg</option>
+                        <option value ="5 Kg">5 Kg</option>
+                        <option value ="10 Kg">10 Kg</option>
+                    </select>
+                </div><br></br>
+            <label for="transaction id">Transaction ID</label>
+            <input type="text" required><br><br>
+            <!--Buttons-->    
+            <div class="buttons" style="margin: 20px 10px;">
+            <button type="reset" style="background-color: rgb(241, 136, 97);">Reset</button>
+            <button type="confirm" style="background-color: rgb(165, 228, 101);"><a href="index.html" style="text-decoration: none;">Confirm</a></button>
+            </div>
+
+
+
+        </form>
+    </div>
+    <div>
+        <img src="images/qrcode.jpg",alt="qr code" style="height: 90vh; width: 70vw; margin: 0px 0px 0px 0px;">
+    </div>
+</div>
+
+</body>
