@@ -38,14 +38,16 @@
 <div class="section"> 
     <div class="box">
         <form  action="https://formspree.io/f/mleqbpak" method="POST">
-            <label for="name">Name&nbsp&nbsp&nbsp;</label>
+            <label for="name"> Name&nbsp&nbsp&nbsp;</label>
             <input type="text" name="name" required><br><br>
-            <label for="number">Number</label>
+            <label for="number"> Number </label>
             <input type="number" name="number" required><br></br>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required><br></br>
-            <label for="pincode">Pincode</label>
+            <label for="address"> Address: </label>
+            <input type="text" name="address" required><br></br>
+            <label for="pincode"> Pincode </label>
             <input type="number" name="pincode" required><br></br>
+
+            /*  FOR GENDER  */
             <label for="gender">Gender:</label><br>
             <label for="male">Male</label>
             <input type="radio" name="gender" id="male">
@@ -54,6 +56,8 @@
             <label for="Others">Others</label>
             <input type="radio" name="gender" id="others"><br><br>
             <input type="submit" value="Submit">
+            
+            /* FOR ITEMS */
             <div class="kit">
                 <label for="item">Item</label>
                     <select name="item">
@@ -65,6 +69,8 @@
                         <option value ="butter">Butter</option>
                         <option value ="ghee">Ghee</option>
                     </select>
+                
+                /*  FOR QUANTITY  */
                 <label for="quantity">Quantity</label>
                     <select name="quantity">
                         <option value="" disabled selected>select</option>
@@ -76,8 +82,8 @@
                         <option value ="10 Kg">10 Kg</option>
                     </select>
                 </div><br></br>
-            <label for="transaction id">Transaction ID</label>
-            <input type="text" name="transaction id" required><br><br>
+            <label for="transaction_id">Transaction ID</label>
+            <input type="text" name="transaction_id" required><br><br>
             <!--Buttons-->    
             <div class="buttons" style="margin: 20px 10px;">
             <button type="reset" style="background-color: rgb(241, 136, 97);">Reset</button>
