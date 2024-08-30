@@ -1,25 +1,34 @@
-# app.py
-from flask import Flask, render_template, request
-import mysql.connector
+from flask import Flask, render_template, request, redirect
+from flask_sqlalchemy import SQLAlchemy
 
-app = Flask(__name__, template_folder='My Website')
+app = Flask(__name__)
 
-# MySQL configuration
-db = mysql.connector.connect(
-    host="localhost",
-    user="karthik",        # Replace with your MySQL username
-    password="karthik@007",    # Replace with your MySQL password
-    database="karthikfarms" # Replace with your database name
-)
+# Update this with your actual MySQL database URI
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://karthik:karthik@007@localhost/karthikfarms'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-# Route to display the form
+db = SQLAlchemy(app)
+
+class Order(db.Model):
+    __tablename__ = 'orders'
+    
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name = db.Column(db.String(100), nullable=False)
+    number = db.Column(db.BigInteger, nullable=False)
+    address = db.Column(db.Text, nullable=False)
+    pincode = db.Column(db.Integer, nullable=False)
+    gender = db.Column(db.Enum('male', 'female', 'others'), nullable=False)
+    item = db.Column(db.String(50), nullable=False)
+    quantity = db.Column(db.String(20), nullable=False)
+    transaction_id = db.Column(db.String(100), nullable=False)
+
 @app.route('/')
-def form():
-    return render_template('buyform.html')  # Updated to match your HTML file name
+def index():
+    return render_template('buyform.html')
 
-# Route to handle form submission
-@app.route('/submit-form', methods=['POST'])
-def submit_form():
+@app.route('/submit', methods=['POST'])
+def submit():
+    # Fetch data from the form
     name = request.form['name']
     number = request.form['number']
     address = request.form['address']
@@ -28,18 +37,25 @@ def submit_form():
     item = request.form['item']
     quantity = request.form['quantity']
     transaction_id = request.form['transaction_id']
-
-    cursor = db.cursor()
-    query = """
-        INSERT INTO orders (name, number, address, pincode, gender, item, quantity, transaction_id)
-        VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
-    """
-    cursor.execute(query, (name, number, address, pincode, gender, item, quantity, transaction_id))
-    db.commit()
-    cursor.close()
-
-    return "Order saved successfully!"
+    
+    # Create a new order entry
+    new_order = Order(
+        name=name,
+        number=number,
+        address=address,
+        pincode=pincode,
+        gender=gender,
+        item=item,
+        quantity=quantity,
+        transaction_id=transaction_id
+    )
+    
+    # Add to session and commit
+    db.session.add(new_order)
+    db.session.commit()
+    
+    return redirect('/')
 
 if __name__ == '__main__':
+    db.create_all()  # This line will create the table in the database if it doesn't exist
     app.run(debug=True)
-
