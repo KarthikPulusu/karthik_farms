@@ -6,7 +6,7 @@ $password = "karthik@007";
 $dbname = "karthikfarms";
 
 // Create connection
-$conn = new mysqli(localhost, karthik, karthik@007, karthikfarms);
+$conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection
 if ($conn->connect_error) {
@@ -28,15 +28,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // SQL query to insert data into the 'orders' table
     $stmt = $conn->prepare("INSERT INTO orders (name, number, address, pincode, gender, item, quantity, transaction_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("sissssss", $name, $number, $address, $pincode, $gender, $item, $quantity, $transaction_id);
-    //$sql = "INSERT INTO orders (name, number, address, pincode, gender, item, quantity, transaction_id) 
-      //      VALUES ('$name', '$number', '$address', '$pincode', '$gender', '$item', '$quantity', '$transaction_id')";
 
-    if ($conn->query($sql) === TRUE) {
+    // Execute the statement
+    if ($stmt->execute()) {
         echo "New record created successfully";
     } else {
         echo "Error: " . $stmt->error;
     }
 
+    // Close the statement and connection
     $stmt->close();
     $conn->close();
 } else {
