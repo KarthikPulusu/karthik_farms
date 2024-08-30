@@ -26,13 +26,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $transaction_id = $_POST['transaction_id'];
 
     // SQL query to insert data into the 'orders' table
-    $sql = "INSERT INTO orders (name, number, address, pincode, gender, item, quantity, transaction_id) 
-            VALUES ('$name', '$number', '$address', '$pincode', '$gender', '$item', '$quantity', '$transaction_id')";
+    $stmt = $conn->prepare("INSERT INTO orders (name, number, address, pincode, gender, item, quantity, transaction_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("sissssss", $name, $number, $address, $pincode, $gender, $item, $quantity, $transaction_id);
+    //$sql = "INSERT INTO orders (name, number, address, pincode, gender, item, quantity, transaction_id) 
+      //      VALUES ('$name', '$number', '$address', '$pincode', '$gender', '$item', '$quantity', '$transaction_id')";
 
     if ($conn->query($sql) === TRUE) {
         echo "New record created successfully";
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        http_response_code(405);
+        echo "Method Not Allowed";
+        //echo "Error: " . $sql . "<br>" . $conn->error;
     }
 }
 
