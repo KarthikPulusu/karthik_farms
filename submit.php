@@ -6,7 +6,7 @@ $password = "karthik@007";
 $dbname = "karthikfarms";
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli(localhost, karthik, karthik@007, karthikfarms);
 
 // Check connection
 if ($conn->connect_error) {
@@ -34,12 +34,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($conn->query($sql) === TRUE) {
         echo "New record created successfully";
     } else {
-        http_response_code(405);
-        echo "Method Not Allowed";
-        //echo "Error: " . $sql . "<br>" . $conn->error;
+        echo "Error: " . $stmt->error;
     }
-}
 
-// Close the connection
-$conn->close();
+    $stmt->close();
+    $conn->close();
+} else {
+    http_response_code(405);
+    echo "Method Not Allowed";
+}
 ?>
