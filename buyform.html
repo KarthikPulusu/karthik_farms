@@ -37,7 +37,59 @@
     <h1 style="color: darkred; text-align: left; margin-top: 40px; margin-left: 30px;">Place the order here.!</h1>
 <div class="section"> 
     <div class="box">
-        <form  action="/submit" method="POST">
+        <form action="/submit" method="post">
+    <label for="name">Name:</label>
+    <input type="text" name="name" required><br><br>
+    
+    <label for="number">Number:</label>
+    <input type="number" name="number" required><br><br>
+    
+    <label for="address">Address:</label>
+    <input type="text" name="address" required><br><br>
+    
+    <label for="pincode">Pincode:</label>
+    <input type="number" name="pincode" required><br><br>
+    
+    <label for="gender">Gender:</label><br>
+    <input type="radio" name="gender" value="male" required> Male
+    <input type="radio" name="gender" value="female"> Female
+    <input type="radio" name="gender" value="others"> Others<br><br>
+    
+    <div class="kit">
+        <label for="item">Item:</label>
+        <select name="item" required>
+            <option value="" disabled selected>Select</option>
+            <option value="buffalo milk">Buffalo milk</option>
+            <option value="cow milk">Cow milk</option>
+            <option value="badam milk">Badam milk</option>
+            <option value="cheese">Cheese</option>
+            <option value="butter">Butter</option>
+            <option value="ghee">Ghee</option>
+        </select>
+        
+        <label for="quantity">Quantity:</label>
+        <select name="quantity" required>
+            <option value="" disabled selected>Select</option>
+            <option value="1 Litre">1 Litre</option>
+            <option value="5 Litre">5 Litre</option>
+            <option value="10 Litre">10 Litre</option>
+            <option value="1 Kg">1 Kg</option>
+            <option value="5 Kg">5 Kg</option>
+            <option value="10 Kg">10 Kg</option>
+        </select>
+    </div><br><br>
+    
+    <label for="transaction_id">Transaction ID:</label>
+    <input type="text" name="transaction_id" required><br><br>
+    
+    <!-- Buttons -->
+    <div class="buttons" style="margin: 20px 10px;">
+        <button type="reset" style="background-color: rgb(241, 136, 97);">Reset</button>
+        <button type="submit" style="background-color: rgb(165, 228, 101);">Submit</button>
+    </div>
+</form>
+
+        <!--form  action="/submit" method="POST">
             <label for="name"> Name&nbsp&nbsp&nbsp;</label>
             <input type="text" name="name" required><br><br>
             <label for="number"> Number </label>
@@ -91,7 +143,7 @@
 
 
 
-        </form>
+        </form>-->
     </div>
     <div>
         <img src="images/qrcode.jpg",alt="qr code" style="height: 90vh; width: 70vw; margin: 0px 0px 0px 0px;">
