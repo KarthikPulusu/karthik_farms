@@ -134,3 +134,25 @@ nav,ul,li{
     padding: 30px;
     font-size: 20px;
 }
+.container {
+    width: 100%; /* Default styling */
+    padding: 10px;
+  }
+  
+@media (max-width: 768px) {
+    .container {
+      width: 65%; /* Adjust width on smaller screens */
+      padding: 5px;
+      /*display: flex;
+      flex-wrap: wrap;*/
+    }
+  }
+  
+@media (max-width: 480px) {
+    .container {
+      width: 10%; /* Further adjustments for mobile screens */
+      padding: 2px;
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
