@@ -116,7 +116,10 @@ nav,ul,li{
     padding: 10px;
     border-radius: 10px;
     height: 60vh;
-    width: 28vw;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    
 }
 .about_item{
     display: flex;
